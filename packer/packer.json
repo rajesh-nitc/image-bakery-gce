@@ -1,0 +1,46 @@
+{
+  "builders": [
+    {
+      "type": "googlecompute",
+      "account_file": "tf-sa.json",
+      "project_id": "tf-first-project",
+      "source_image": "debian-9-stretch-v20180401",
+      "zone": "asia-south1-a",
+      "image_description": "created-with-packer",
+      "ssh_username": "rajesh",
+      "tags": "packer",
+      "metadata": {
+        "enable-oslogin": "FALSE"
+      }
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "file",
+      "source": "scripts",
+      "destination": "/home/rajesh/"
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "scripts/ansible.sh"
+      ]
+    },
+    {
+      "type": "file",
+      "source": "ansible",
+      "destination": "/home/rajesh/"
+    },
+    {
+      "type": "ansible-local",
+      "playbook_file": "ansible/playbook.yml",
+      "playbook_dir": "ansible"
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "scripts/cleanup.sh"
+      ]
+    }
+  ]
+}

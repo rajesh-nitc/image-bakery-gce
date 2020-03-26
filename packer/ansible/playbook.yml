@@ -1,0 +1,7 @@
+---
+- name: sample playbook
+  hosts: all
+  become: true  
+  gather_facts: false  
+  roles:
+    - sample

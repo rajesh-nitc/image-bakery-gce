@@ -1,0 +1,26 @@
+image:
+  name: hashicorp/packer
+  entrypoint:
+    - '/usr/bin/env'
+    - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+
+variables:
+  PACKER_DIR: packer
+
+stages:
+  - validate
+  - build
+
+before_script:
+  - packer --version
+
+validate:
+  stage: validate
+  script:
+    - cd $PACKER_DIR
+    - packer validate packer.json
+build:
+  stage: build
+  script:
+    - cd $PACKER_DIR
+    - packer build packer.json

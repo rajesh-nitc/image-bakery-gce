@@ -1,2 +1,2 @@
 # bakery
-Custom images for gce, gke
+Images for gce
