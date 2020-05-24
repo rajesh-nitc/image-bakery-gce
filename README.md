@@ -1,12 +1,12 @@
-## packer-pipeline
+# Packer
 
 ```.gitlab-ci.yml``` is included which automates the below manual steps
-### validate packer template
+## Validate Packer Template
 ```
 cd packer
 packer validate packer.json
 ```
-### build image
+## Build Image
 ```
 cd packer
 packer build packer.json
