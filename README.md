@@ -1,5 +1,6 @@
 # Packer
 To build VM images
+
 ```.gitlab-ci.yml``` is included which automates the below manual steps
 ## Validate Packer Template
 ```
